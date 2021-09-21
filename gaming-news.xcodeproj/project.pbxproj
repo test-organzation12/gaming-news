@@ -73,6 +73,7 @@
 				06458E0726F9E9E200B58463 /* Assets.xcassets */,
 				06458E0926F9E9E200B58463 /* LaunchScreen.storyboard */,
 				06458E0C26F9E9E200B58463 /* Info.plist */,
+				3CE9519526F9EE4300526A66 /* TableViewController.swift */,
 			);
 			path = "gaming-news";
 			sourceTree = "<group>";
@@ -213,6 +214,7 @@
 				06458E0326F9E9DF00B58463 /* ViewController.swift in Sources */,
 				06458DFF26F9E9DF00B58463 /* AppDelegate.swift in Sources */,
 				06458E0126F9E9DF00B58463 /* SceneDelegate.swift in Sources */,
+				3CE9519626F9EE4300526A66 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
