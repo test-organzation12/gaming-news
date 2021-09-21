@@ -6,24 +6,20 @@
 //
 
 import UIKit
+import Firebase
 
 
 class TableViewController: UITableViewController {
 
+    @IBOutlet var MyTableViewController: UITableView!
     
-    var noteArr = [String]()
-    var currentNote = -1
-    
+    var fb = Firestore.firestore() // gives us the firestore object
+    let notes = "notes"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        if noteArr.count == 0 {
-            noteArr.append("Note 1")
-            noteArr.append("Note 2")
-            noteArr.append("Note 3")
-        }
+        startListener()
+        simpleEdit()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,6 +28,8 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
+   
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,22 +39,48 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return noteArr.count
+        return 0
+    }
+    
+    
+    func startListener() {
+        fb.collection(notes).addSnapshotListener { snapshot, error in print("hi from database...")
+            
+            if let e = error {
+                print("some error \(e)")
+            }else{
+                if let docs = snapshot {
+                    for doc in docs.documents {
+                        if let txt = doc.data()["txt"] as? String {
+                        print("et dokument: \(txt)")
+                }
+            }
+                self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func inserData(txt:String) {
+        let document = fb.collection("notes").document()
+        var data = [String:String]()
+        data["txt"] = txt
+        document.setData(data)
+        
+    }
+    
+    func simpleDelete() {
+        fb.collection("notes").document("gre11OGjDGNovweaZNOO").delete()
+    }
+    
+
+    func simpleEdit() {
+        var data = [String:String]()
+        data["txt"] = "a new note here"
+        fb.collection("notes").document("gre11OGjDGNovweaZNOO").setData(data)
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
-
-        cell.textLabel?.text = noteArr[indexPath.row]
-
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currentNote = indexPath.row
-        performSegue(withIdentifier: "segue1", sender: self)
-    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

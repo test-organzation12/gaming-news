@@ -82,13 +82,13 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="MyTableViewController" destination="Gfc-Lu-uP2" id="XwH-US-JUe"/>
+                        <outlet property="MyTableViewController" destination="Gfc-Lu-uP2" id="fXF-ks-8CE"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segue1" id="C5A-T5-rj5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPi-pi-K86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="76"/>
+            <point key="canvasLocation" x="971" y="76"/>
         </scene>
     </scenes>
     <resources>
