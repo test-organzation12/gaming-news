@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     
     
     var db = Firestore.firestore()
-    let notes = "notes"
+    var notes:[Note] = []
+    var currentNote = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,23 @@ class ViewController: UIViewController {
     }
     
     func startListener() {
-        db.collection(notes).addSnapshotListener { snapshot, error in
-            print("hi from firebase")
+        db.collection("notes").addSnapshotListener {(snap, error) in
+            if let e = error {
+                print("error fetching notes \(e)")
+            }else {
+                if let s = snap{
+                    self.notes.removeAll() // clear array first
+                    for doc in s.documents{
+                        if let txt = doc.data()["txt"] as? String{
+                            print("et dokument: \(txt)")
+                            let note = Note()
+                            note.txt = txt
+                            note.id = doc.documentID
+                            self.notes.append(note)
+                        }
+                    }
+                }
+            }
         }
     }
     
