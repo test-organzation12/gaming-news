@@ -20,12 +20,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let parent = parentViewCon {
-            textView.text = parent.notes[parent.currentNote].txt
+            textView.text = parent.notes[parent.currentNote].news
         }else {
             textView.text = "empty..."
         }
         
-       
+    
+    
         // Do any additional setup after loading the view.
     }
     
