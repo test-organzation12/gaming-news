@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = notes[indexPath.row].txt
+        cell.textLabel?.text = notes[indexPath.row].title
 
         return cell
     }
@@ -71,18 +71,19 @@ class TableViewController: UITableViewController {
     
     
     func deleteNote(index:Int) {
-        fb.collection("notes").document(notes[index].id).delete()
+        fb.collection("games").document(notes[index].id).delete()
     }
 
     func simpleDelete(){
-        fb.collection("notes").document("mgAUSd4Pg0pZV9iMufkm").delete()
+        fb.collection("games").document("mgAUSd4Pg0pZV9iMufkm").delete()
     }
     
     func simpleEdit(){
         var data=[String:String]()
-        data["txt"] = "a new note here"
-        fb.collection("notes").document("mgAUSd4Pg0pZV9iMufkm").setData(data)
+        data["title"] = "a new note here"
+        fb.collection("games").document("mgAUSd4Pg0pZV9iMufkm").setData(data)
     }
+    
 
     
     // MARK: - Navigation
@@ -106,26 +107,26 @@ class TableViewController: UITableViewController {
     
     
     func insertData(txt:String){
-        let document = fb.collection("notes").document()
+        let document = fb.collection("games").document()
         var data = [String:String]()
-        data["txt"] = txt
+        data["news"] = txt
         // put more if you like...
         document.setData(data)
     }
     
     
     func startListener(){
-        fb.collection("notes").addSnapshotListener {(snap, error) in
+        fb.collection("games").addSnapshotListener {(snap, error) in
             if let e = error {
-                print("error fetching notes \(e)")
+                print("error fetching games \(e)")
             }else {
                 if let s = snap{
                     self.notes.removeAll() // clear array first
                     for doc in s.documents{
-                        if let txt = doc.data()["txt"] as? String{
+                        if let txt = doc.data()["title"] as? String{
                             print("et dokument: \(txt)")
                             let note = Note()
-                            note.txt = txt
+                            note.title = txt
                             note.id = doc.documentID
                             self.notes.append(note)
                             // self = this i java
@@ -140,10 +141,11 @@ class TableViewController: UITableViewController {
     
     
     
+    
     @IBAction func addNotePressed(_ sender: UIButton) {
-        let doc = fb.collection("notes").document() // new document with new ID
+        let doc = fb.collection("games").document() // new document with new ID
         var data = [String:String]()
-        data["txt"] = "Empty note"
+        data["title"] = "Empty game"
         doc.setData(data)
     }
 
@@ -170,9 +172,9 @@ class TableViewController: UITableViewController {
     
     
     func updateNote(note:Note) {
-        let doc = fb.collection("notes").document(note.id)
+        let doc = fb.collection("game").document(note.id)
         var data = [String:String]()
-        data["txt"] = note.txt
+        data["title"] = note.title
 //        data["body"] = "body text Jon"
         doc.setData(data)
     }

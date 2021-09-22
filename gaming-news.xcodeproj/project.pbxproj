@@ -14,8 +14,8 @@
 		06458E0826F9E9E200B58463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06458E0726F9E9E200B58463 /* Assets.xcassets */; };
 		06458E0B26F9E9E200B58463 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06458E0926F9E9E200B58463 /* LaunchScreen.storyboard */; };
 		06458E1726F9F29F00B58463 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06458E1626F9F29F00B58463 /* GoogleService-Info.plist */; };
-		06458E2F26FB302200B58463 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06458E2E26FB302200B58463 /* Note.swift */; };
 		06458E3626FB3B0A00B58463 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06458E3526FB3B0A00B58463 /* TableViewController.swift */; };
+		3CD64DB126FB4AD30016A4B2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD64DB026FB4AD30016A4B2 /* Note.swift */; };
 		438FB278B89211ADF38BC9DF /* Pods_gaming_news.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F79E709AAF081638826927 /* Pods_gaming_news.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +29,8 @@
 		06458E0A26F9E9E200B58463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06458E0C26F9E9E200B58463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06458E1626F9F29F00B58463 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		06458E2E26FB302200B58463 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../../../Downloads/Note.swift; sourceTree = "<group>"; };
 		06458E3526FB3B0A00B58463 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3CD64DB026FB4AD30016A4B2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		63A3C4D8969E6392B14D6561 /* Pods-gaming-news.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gaming-news.release.xcconfig"; path = "Target Support Files/Pods-gaming-news/Pods-gaming-news.release.xcconfig"; sourceTree = "<group>"; };
 		83F79E709AAF081638826927 /* Pods_gaming_news.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gaming_news.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B749B1A3B6E64D78B95185FC /* Pods-gaming-news.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gaming-news.debug.xcconfig"; path = "Target Support Files/Pods-gaming-news/Pods-gaming-news.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,16 +69,16 @@
 		06458DFD26F9E9DF00B58463 /* gaming-news */ = {
 			isa = PBXGroup;
 			children = (
-				06458E2E26FB302200B58463 /* Note.swift */,
+				3CD64DB026FB4AD30016A4B2 /* Note.swift */,
 				06458E1626F9F29F00B58463 /* GoogleService-Info.plist */,
 				06458DFE26F9E9DF00B58463 /* AppDelegate.swift */,
 				06458E0026F9E9DF00B58463 /* SceneDelegate.swift */,
 				06458E0226F9E9DF00B58463 /* ViewController.swift */,
+				06458E3526FB3B0A00B58463 /* TableViewController.swift */,
 				06458E0426F9E9DF00B58463 /* Main.storyboard */,
 				06458E0726F9E9E200B58463 /* Assets.xcassets */,
 				06458E0926F9E9E200B58463 /* LaunchScreen.storyboard */,
 				06458E0C26F9E9E200B58463 /* Info.plist */,
-				06458E3526FB3B0A00B58463 /* TableViewController.swift */,
 			);
 			path = "gaming-news";
 			sourceTree = "<group>";
@@ -215,11 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD64DB126FB4AD30016A4B2 /* Note.swift in Sources */,
 				06458E0326F9E9DF00B58463 /* ViewController.swift in Sources */,
 				06458DFF26F9E9DF00B58463 /* AppDelegate.swift in Sources */,
 				06458E0126F9E9DF00B58463 /* SceneDelegate.swift in Sources */,
 				06458E3626FB3B0A00B58463 /* TableViewController.swift in Sources */,
-				06458E2F26FB302200B58463 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
