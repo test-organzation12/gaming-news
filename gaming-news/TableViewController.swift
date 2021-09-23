@@ -13,7 +13,10 @@ class TableViewController: UITableViewController {
     
     private var fb = Firestore.firestore()
     var notes:[Note] = []
+    var comments:[Comment] = []
     var currentNote = -1
+    var currentComment = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startListener()
@@ -44,31 +47,12 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         cell.textLabel?.text = notes[indexPath.row].title
+        // cell.textLabel?.text = comments[indexPath.row].fortnitecomment
 
         return cell
     }
     
-
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // Delete the row from the data source
-//            deleteNote(index: indexPath.row)
-//            notes.remove(at: indexPath.row) // need to delete here also, because FB is "slow"
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
-    
-    
-    
     
     func deleteNote(index:Int) {
         fb.collection("games").document(notes[index].id).delete()
@@ -78,11 +62,8 @@ class TableViewController: UITableViewController {
         fb.collection("games").document("mgAUSd4Pg0pZV9iMufkm").delete()
     }
     
-    func simpleEdit(){
-        var data=[String:String]()
-        data["title"] = "a new note here"
-        fb.collection("games").document("mgAUSd4Pg0pZV9iMufkm").setData(data)
-    }
+    
+    */
     
 
     
@@ -102,18 +83,9 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentNote = indexPath.row
+        currentComment = indexPath.row
         performSegue(withIdentifier: "segue1", sender: self)
     }
-    
-    
-    func insertData(txt:String){
-        let document = fb.collection("games").document()
-        var data = [String:String]()
-        data["news"] = txt
-        // put more if you like...
-        document.setData(data)
-    }
-    
     
     func startListener(){
         fb.collection("games").addSnapshotListener {(snap, error) in
@@ -123,14 +95,16 @@ class TableViewController: UITableViewController {
                 if let s = snap{
                     self.notes.removeAll() // clear array first
                     for doc in s.documents{
+                        
                         if let txt = doc.data()["title"] as? String{
-                            print("et dokument: \(txt)")
                             let note = Note()
                             note.title = txt
+                            // note.news = txt
                             note.id = doc.documentID
                             self.notes.append(note)
-                            // self = this i java
                         }
+                        
+
                     }
                     self.tableView.reloadData()
                 }
@@ -159,24 +133,34 @@ class TableViewController: UITableViewController {
         }
     }
     
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func updateNote(note:Note) {
-        let doc = fb.collection("game").document(note.id)
+        let doc = fb.collection("games").document(note.id)
         var data = [String:String]()
         data["title"] = note.title
 //        data["body"] = "body text Jon"
-        doc.setData(data)
+        doc.setData(data, merge: true)
+    }
+    
+    func insertData(note:Note) {
+        let document = fb.collection("games").document()
+        var data = [String:String]()
+        data["title"] = note.title
+        // put more if you like...
+        document.setData(data)
+    }
+    
+    func insertCommentData(comment:Comment) {
+        let document = fb.collection("comments").document()
+        var data = [String:String]()
+        data["fortnitecomment"] = comment.fortnitecomment
+        // put more if you like...
+        document.setData(data)
+    }
+    
+    func simpleEdit(note:Note){
+        var data=[String:String]()
+        data["title"] = note.title
+        fb.collection("games").document("NeOSh4wW5fgdGznzEtVW").setData(data, merge: true)
     }
 
 }
