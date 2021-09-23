@@ -13,14 +13,14 @@ class FirebaseService{
     var storageRef:StorageReference?
     private var db = Firestore.firestore()
     func testUpload() {
-        if let img = UIImage(named: "csgo.jpg"){
-            uploadImage(image: img, name: "csgo.jpg")
+        if let img = UIImage(named: "gaming-news.jpg"){
+            uploadImage(image: img, name: "gaming-news.jpg")
         }
     }
     
     
     func testDownload(){
-        downloadImage(path: "csgo.jpg")
+        downloadImage(path: "gaming-news.jpg")
     }
     
     
@@ -30,7 +30,7 @@ class FirebaseService{
             // Create file metadata to update
             let newMetadata = StorageMetadata()
             newMetadata.contentType = "image/jpeg";
-        let imageRef = storage.reference().child("csgo.jpg")
+        let imageRef = storage.reference().child("gaming-news.jpg")
             print("about to putData")
             imageRef.putData(data, metadata: newMetadata) { (metadata, error) in
                 if error != nil {
