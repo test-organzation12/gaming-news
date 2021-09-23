@@ -8,6 +8,9 @@
 import UIKit
 import Firebase
 
+var firebaseService = FirebaseService()
+
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
@@ -27,6 +30,11 @@ class ViewController: UIViewController {
         }else {
             textView.text = "empty..."
         }
+        
+        firebaseService.testUpload()
+        firebaseService.testDownload()
+        
+        
         
         
     }
