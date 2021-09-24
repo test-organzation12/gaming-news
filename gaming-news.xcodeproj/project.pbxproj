@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060CF6C626FDC800007F0BF5 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060CF6C526FDC7FF007F0BF5 /* FirebaseService.swift */; };
 		06458DFF26F9E9DF00B58463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06458DFE26F9E9DF00B58463 /* AppDelegate.swift */; };
 		06458E0126F9E9DF00B58463 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06458E0026F9E9DF00B58463 /* SceneDelegate.swift */; };
 		06458E0326F9E9DF00B58463 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06458E0226F9E9DF00B58463 /* ViewController.swift */; };
@@ -17,11 +18,11 @@
 		06458E3626FB3B0A00B58463 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06458E3526FB3B0A00B58463 /* TableViewController.swift */; };
 		3CD64DB126FB4AD30016A4B2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD64DB026FB4AD30016A4B2 /* Note.swift */; };
 		3CD64DB326FC937B0016A4B2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD64DB226FC937B0016A4B2 /* Comment.swift */; };
-		3CD64DB726FC956E0016A4B2 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD64DB626FC956E0016A4B2 /* FirebaseService.swift */; };
 		438FB278B89211ADF38BC9DF /* Pods_gaming_news.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F79E709AAF081638826927 /* Pods_gaming_news.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060CF6C526FDC7FF007F0BF5 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = ../../FirebaseNotePrep2/FirebaseNotePrep/FirebaseService.swift; sourceTree = "<group>"; };
 		06458DFB26F9E9DF00B58463 /* gaming-news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gaming-news.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06458DFE26F9E9DF00B58463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06458E0026F9E9DF00B58463 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		06458E3526FB3B0A00B58463 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3CD64DB026FB4AD30016A4B2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		3CD64DB226FC937B0016A4B2 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		3CD64DB626FC956E0016A4B2 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		63A3C4D8969E6392B14D6561 /* Pods-gaming-news.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gaming-news.release.xcconfig"; path = "Target Support Files/Pods-gaming-news/Pods-gaming-news.release.xcconfig"; sourceTree = "<group>"; };
 		83F79E709AAF081638826927 /* Pods_gaming_news.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gaming_news.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B749B1A3B6E64D78B95185FC /* Pods-gaming-news.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gaming-news.debug.xcconfig"; path = "Target Support Files/Pods-gaming-news/Pods-gaming-news.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +73,7 @@
 		06458DFD26F9E9DF00B58463 /* gaming-news */ = {
 			isa = PBXGroup;
 			children = (
+				060CF6C526FDC7FF007F0BF5 /* FirebaseService.swift */,
 				3CD64DB226FC937B0016A4B2 /* Comment.swift */,
 				3CD64DB026FB4AD30016A4B2 /* Note.swift */,
 				06458E1626F9F29F00B58463 /* GoogleService-Info.plist */,
@@ -82,7 +83,6 @@
 				06458E3526FB3B0A00B58463 /* TableViewController.swift */,
 				06458E0426F9E9DF00B58463 /* Main.storyboard */,
 				06458E0726F9E9E200B58463 /* Assets.xcassets */,
-				3CD64DB626FC956E0016A4B2 /* FirebaseService.swift */,
 				06458E0926F9E9E200B58463 /* LaunchScreen.storyboard */,
 				06458E0C26F9E9E200B58463 /* Info.plist */,
 			);
@@ -223,9 +223,9 @@
 			files = (
 				3CD64DB126FB4AD30016A4B2 /* Note.swift in Sources */,
 				3CD64DB326FC937B0016A4B2 /* Comment.swift in Sources */,
+				060CF6C626FDC800007F0BF5 /* FirebaseService.swift in Sources */,
 				06458E0326F9E9DF00B58463 /* ViewController.swift in Sources */,
 				06458DFF26F9E9DF00B58463 /* AppDelegate.swift in Sources */,
-				3CD64DB726FC956E0016A4B2 /* FirebaseService.swift in Sources */,
 				06458E0126F9E9DF00B58463 /* SceneDelegate.swift in Sources */,
 				06458E3626FB3B0A00B58463 /* TableViewController.swift in Sources */,
 			);
