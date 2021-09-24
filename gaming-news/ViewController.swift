@@ -8,16 +8,15 @@
 import UIKit
 import Firebase
 
-var firebaseService = FirebaseService()
-
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var commentView: UITextView!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveText: UIButton!
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var fileName: UITextField!
     
     var parentViewCon:TableViewController? = nil
     
@@ -31,9 +30,11 @@ class ViewController: UIViewController {
             textView.text = "empty..."
         }
         
-        firebaseService.testUpload()
-        firebaseService.testDownload()
+        firebaseService.downloadImage(fileName: "fortnite.jpg", caller:self)
         
+        // firebaseService.testUpload()
+        // firebaseService.testDownload()
+    
         
         
         
@@ -41,6 +42,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func savePressed(_ sender: Any) {
+        
+        
+        print("save pressed")
+        if let img = imageView.image, let name = fileName.text {
+            firebaseService.uploadImage(filename: name, image: img)
+        }
         
         // update data
         /*
@@ -53,11 +60,13 @@ class ViewController: UIViewController {
         
         // insert data
         
+        /*
         if let x = parentViewCon {
             let note = x.notes[x.currentNote]
             note.title = textView.text
             x.insertData(note: note)
         }
+        */
         
         
         /*

@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+var firebaseService = FirebaseService()
 class TableViewController: UITableViewController {
 
     
@@ -19,6 +20,9 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // firebaseService.startListener()
+        firebaseService.parentTVC = self
+        
         startListener()
         //simpleDelete()
         //simpleEdit()
@@ -86,7 +90,8 @@ class TableViewController: UITableViewController {
         currentComment = indexPath.row
         performSegue(withIdentifier: "segue1", sender: self)
     }
-    
+
+
     func startListener(){
         fb.collection("games").addSnapshotListener {(snap, error) in
             if let e = error {
@@ -111,6 +116,8 @@ class TableViewController: UITableViewController {
             }
         }
     }
+ 
+
     
     
     
