@@ -9,6 +9,7 @@ import Foundation
 class Note{
     var id:String = ""
     var title:String = ""
+    var comment:String = ""
     var news:String = ""
     
 }
