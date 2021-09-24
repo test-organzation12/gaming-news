@@ -56,18 +56,19 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    /*
     
-    func deleteNote(index:Int) {
+    
+   /* func deleteNote(index:Int) {
         fb.collection("games").document(notes[index].id).delete()
     }
-
+*/
+    
     func simpleDelete(){
-        fb.collection("games").document("mgAUSd4Pg0pZV9iMufkm").delete()
+        fb.collection("games").document("G4ZKIjy7guSTs6yF42GZ").delete()
     }
     
     
-    */
+
     
 
     
@@ -149,20 +150,14 @@ class TableViewController: UITableViewController {
     }
     
     func insertData(note:Note) {
-        let document = fb.collection("games").document()
+        let document = fb.collection("comments").document()
         var data = [String:String]()
-        data["title"] = note.title
+        data["comment"] = note.comment
         // put more if you like...
         document.setData(data)
     }
     
-    func insertCommentData(comment:Comment) {
-        let document = fb.collection("comments").document()
-        var data = [String:String]()
-        data["fortnitecomment"] = comment.fortnitecomment
-        // put more if you like...
-        document.setData(data)
-    }
+
     
     func simpleEdit(note:Note){
         var data=[String:String]()

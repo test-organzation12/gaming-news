@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var saveText: UIButton!
     
+    @IBOutlet weak var commentAdd: UITextView!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var fileName: UITextField!
@@ -50,23 +51,23 @@ class ViewController: UIViewController {
         }
         
         // update data
-        /*
+        
         if let p = parentViewCon {
             let note = p.notes[p.currentNote]
             note.title = textView.text
-            // p.simpleEdit(note: note)
+            p.updateNote(note: note)
         }
-        */
+    
         
         // insert data
         
-        /*
+        
         if let x = parentViewCon {
             let note = x.notes[x.currentNote]
-            note.title = textView.text
+            note.comment = commentAdd.text
             x.insertData(note: note)
         }
-        */
+        
         
         
         /*
@@ -78,6 +79,18 @@ class ViewController: UIViewController {
         */
         
     }
+    
+    
+    
+    @IBAction func pressDelete(_ sender: Any) {
+        
+        if let x = parentViewCon {
+            x.simpleDelete()
+        }
+    }
+
+    
+    
     
 }
 
