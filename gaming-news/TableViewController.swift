@@ -68,9 +68,6 @@ class TableViewController: UITableViewController {
         fb.collection("games").document(note.id).delete()
     }
     
-    
-
-    
 
     
     // MARK: - Navigation
@@ -157,14 +154,6 @@ class TableViewController: UITableViewController {
         data["comment"] = note.comment
         // put more if you like...
         doc.setData(data, merge: true)
-    }
-    
-
-    
-    func simpleEdit(note:Note){
-        var data=[String:String]()
-        data["title"] = note.title
-        fb.collection("games").document("NeOSh4wW5fgdGznzEtVW").setData(data, merge: true)
     }
 
 }
