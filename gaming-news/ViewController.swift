@@ -85,7 +85,8 @@ class ViewController: UIViewController {
     @IBAction func pressDelete(_ sender: Any) {
         
         if let x = parentViewCon {
-            x.simpleDelete()
+            let note = x.notes[x.currentNote]
+            x.simpleDelete(note: note)
         }
     }
 

@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
 
     
     private var fb = Firestore.firestore()
+    
     var notes:[Note] = []
     var comments:[Comment] = []
     var currentNote = -1
@@ -63,8 +64,8 @@ class TableViewController: UITableViewController {
     }
 */
     
-    func simpleDelete(){
-        fb.collection("games").document("G4ZKIjy7guSTs6yF42GZ").delete()
+    func simpleDelete(note:Note){
+        fb.collection("games").document(note.id).delete()
     }
     
     
@@ -150,11 +151,12 @@ class TableViewController: UITableViewController {
     }
     
     func insertData(note:Note) {
-        let document = fb.collection("comments").document()
+        let doc = fb.collection("games").document(note.id)
+        // let document = fb.collection("comments").document(note.id)
         var data = [String:String]()
         data["comment"] = note.comment
         // put more if you like...
-        document.setData(data)
+        doc.setData(data, merge: true)
     }
     
 
